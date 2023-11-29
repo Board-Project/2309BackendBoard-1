@@ -1,4 +1,4 @@
-package com.github;
+package com.github.board;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,0 +1,9 @@
+server:
+  port:8090
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://project-1.cehckoacemxp.ap-northeast-2.rds.amazonaws.com:3306/mydb?useUnicode=true&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: root
+    password: 12345678
