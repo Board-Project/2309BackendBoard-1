@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
-@Builder
+//@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @DynamicInsert      //엔티티 변화가 있는 컬럼에 대해서만 SQL 실행
@@ -33,7 +33,7 @@ public class UserEntity {
     private LocalDateTime create_time;
     @Column(name = "update_time",nullable = true)
     private LocalDateTime update_time;
-    @Column(name = "id_deleted")
+    @Column(name = "is_deleted")
     private boolean is_deleted = false;
 
 
