@@ -11,14 +11,13 @@ import java.util.stream.Collectors;
 @Builder
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
 public class CommentDto {
+
     @ToString
     @Builder
     @Getter
     @Setter
-    @NoArgsConstructor
     @AllArgsConstructor
     public static class CreateCommentRequest {
         private Integer boardIndex;
@@ -29,7 +28,6 @@ public class CommentDto {
     @ToString
     @Builder
     @Getter
-    @NoArgsConstructor
     @AllArgsConstructor
     public static class PatchCommentRequest {
         private Integer commentId;
@@ -41,7 +39,6 @@ public class CommentDto {
     @Builder
     @Getter
     @Setter
-    @NoArgsConstructor
     @AllArgsConstructor
     public static class CommentResponse {
         private String userEmail;
@@ -72,5 +69,4 @@ public class CommentDto {
             return list.stream().map(CommentResponse::toResponse).collect(Collectors.toList());
         }
     }
-
 }

@@ -1,5 +1,6 @@
 package com.github.board.repository.Comment.Entity;
 
+import com.github.board.entity.Post;
 import com.github.board.repository.Users.UserEntity;
 import jakarta.persistence.*;
 import lombok.*;

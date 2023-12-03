@@ -24,6 +24,7 @@ public class SecurityConfig {
                                 .requestMatchers("/api/signup").permitAll()
                                 .requestMatchers("/api/login").permitAll()
                                 .requestMatchers("/api/logout").permitAll()
+                                .requestMatchers("/api/comments").permitAll()
 
                                 .anyRequest().authenticated()
                 );
