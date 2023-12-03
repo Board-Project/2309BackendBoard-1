@@ -28,7 +28,7 @@ public class JwtProvider {
     private String secretKey="Fu-Bao-the-best-panda";
 
 
-    
+
 
     // Create JWT
     public String encode(User user) {
