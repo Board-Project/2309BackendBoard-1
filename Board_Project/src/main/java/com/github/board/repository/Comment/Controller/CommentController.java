@@ -3,6 +3,7 @@ package com.github.board.repository.Comment.Controller;
 import com.github.board.repository.Comment.Dto.CommentDto;
 import com.github.board.repository.Comment.Entity.Comment;
 import com.github.board.repository.Comment.Service.CommentService;
+import com.github.board.service.security.JwtProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +17,7 @@ import java.util.List;
 public class CommentController {
 
     private final CommentService commentService;
-//    private final JwtService jwtService;
+    private final JwtProvider jwtService;
 
     @GetMapping("/comments")
     public List<CommentDto.CommentResponse> findAll() {

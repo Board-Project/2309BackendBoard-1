@@ -1,21 +1,26 @@
 package com.github.board.repository.Comment.Service;
 
+import com.github.board.entity.Post;
+import com.github.board.repository.Articles.PostRepository;
 import com.github.board.repository.Comment.Dto.CommentDto;
 import com.github.board.repository.Comment.Entity.Comment;
 import com.github.board.repository.Comment.Repository.CommentRepository;
 import com.github.board.service.exceptions.NotFoundException;
 import jakarta.persistence.EntityNotFoundException;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+
+@Service
+@RequiredArgsConstructor
 public class CommentService {
+
     private final CommentRepository commentRepository;
     private final PostRepository postRepository;
 
-    public CommentService(CommentRepository commentRepository) {
-        this.commentRepository = commentRepository;
-    }
 
     public List<Comment> findByPostId(Integer postId) {
         return commentRepository.findAllByPost_Id(postId);
