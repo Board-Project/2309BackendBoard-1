@@ -12,14 +12,13 @@ import java.time.LocalDateTime;
 
 public class PostDTO {
         private Integer id;
-       // private Integer user_id;
+        private Integer user_id;
         private String title;
         private String content;
+        private Integer is_deleted;
         private String author;
-       // private Integer like_cnt;
-        //private Integer visitor_cnt;
         private Integer create_time;
-        private LocalDateTime update_time;
+
 
 
 
