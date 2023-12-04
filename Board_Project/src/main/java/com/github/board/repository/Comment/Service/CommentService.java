@@ -31,7 +31,7 @@ public class CommentService {
     }
 
     public void saveComment(CommentDto.CreateCommentRequest commentDto) {
-        Post post = postRepository.findById(commentDto.getBoardIndex())
+        Post post = postRepository.findById(commentDto.getPostId())
                 .orElseThrow(() -> new EntityNotFoundException("해당 ID의 게시물을 찾을 수 없습니다."));
 
         Comment comment = Comment.builder()
