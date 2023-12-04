@@ -33,7 +33,7 @@ public class Comment {
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "board_index", nullable = false)
+    @JoinColumn(name = "post_id", nullable = false)
     private Post post;
 
     @NotNull
@@ -41,15 +41,8 @@ public class Comment {
     private String content;
 
     @NotNull
-    @Column(name = "like_cnt",nullable = false)
-    private Integer like;
-
-    @NotNull
     @Column(name = "create_time",nullable = false)
     private LocalDateTime createTime;
-
-    @Column(name = "update_time")
-    private LocalDateTime updateTime;
 
     @Column(name = "is_deleted")
     private boolean isDeleted = false;
