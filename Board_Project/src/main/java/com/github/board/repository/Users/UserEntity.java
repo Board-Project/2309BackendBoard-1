@@ -29,8 +29,8 @@ public class UserEntity {
     private String email;
     @Column(name = "password",nullable = false,length = 255)
     private String password;
-//    @Column(name = "create_time",nullable = false)
-//    private LocalDateTime create_time;
+    @Column(name = "create_time",nullable = false)
+    private LocalDateTime create_time;
 
     @Column(name = "is_deleted")
     private boolean is_deleted = false;
