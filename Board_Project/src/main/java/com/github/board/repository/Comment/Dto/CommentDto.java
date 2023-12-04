@@ -20,7 +20,7 @@ public class CommentDto {
     @Setter
     @AllArgsConstructor
     public static class CreateCommentRequest {
-        private Integer boardIndex;
+        private Integer postId;
         private String content;
         private String author;
     }
@@ -42,24 +42,20 @@ public class CommentDto {
     @AllArgsConstructor
     public static class CommentResponse {
         private String userEmail;
-        private Integer boardIndex;
+        private Integer postId;
         private Integer commentId;
         private String content;
-        private Integer like;
         private LocalDateTime createTime;
-        private LocalDateTime updateTime;
         private Boolean isDeleted;
         private String author;
 
         public static CommentResponse toResponse(Comment comment){
             return CommentResponse.builder()
                     .userEmail(comment.getUser().getEmail())
-                    .boardIndex(comment.getPost().getId())
+                    .postId(comment.getPost().getId())
                     .commentId(comment.getId())
                     .content(comment.getContent())
-                    .like(comment.getLike())
                     .createTime(comment.getCreateTime())
-                    .updateTime(comment.getUpdateTime())
                     .isDeleted(comment.isDeleted())
                     .author(comment.getAuthor())
                     .build();
