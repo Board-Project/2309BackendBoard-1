@@ -23,16 +23,15 @@ public class UserEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "user_name",nullable = true,length = 20)  //테이블 수정 후 다 false로 바꾸기
+    @Column(name = "user_name",nullable = false,length = 20)  //테이블 수정 후 다 false로 바꾸기
     private String user_name;
-    @Column(name = "email",nullable = true,length = 255)
+    @Column(name = "email",nullable = false,length = 255)
     private String email;
-    @Column(name = "password",nullable = true,length = 255)
+    @Column(name = "password",nullable = false,length = 255)
     private String password;
-    @Column(name = "create_time",nullable = true)
+    @Column(name = "create_time",nullable = false)
     private LocalDateTime create_time;
-    @Column(name = "update_time",nullable = true)
-    private LocalDateTime update_time;
+
     @Column(name = "is_deleted")
     private boolean is_deleted = false;
 
