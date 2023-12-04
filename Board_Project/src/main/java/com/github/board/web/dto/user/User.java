@@ -19,7 +19,7 @@ public class User {
 
     private LocalDateTime create_time= LocalDateTime.now();
 
-    private LocalDateTime update_time;
+
 
 
     private boolean is_deleted= false;
