@@ -14,34 +14,30 @@ import java.time.LocalDateTime;
 @Table(name = "post")
 public class Post {
 
+    // 게시글 user id - 댓글 참조
+
     @Id //primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name ="id", nullable = false)
     private Integer id;
 
-    @Column(name = "user_id") //
+    @Column(name = "user_id", nullable = false) //
     private Integer user_id;
 
-    @Column(name = "title",length = 63)
+    @Column(name = "title",length = 63, nullable = false)
     private String title;
 
-    @Column(name = "content", length = 255)
+    @Column(name = "content", length = 255, nullable = false)
     private String content;
 
-    @Column(name = "author", length = 32)
+    @Column(name ="is_deleted", nullable = false)
+    private Integer is_deleted;
+
+    @Column(name = "author", length = 32, nullable = false)
     private String author;
 
-    @Column(name = "like_cnt")
-    private Integer like_cnt;
-
-    @Column(name = "visitor_cnt")
-    private Integer vistor_cnt;
-
-    @Column(name = "create_time")
+    @Column(name = "create_time", nullable = false)
     private LocalDateTime create_time;
-
-    @Column(name = "update_time")
-    private LocalDateTime update_time;
-
 
 
     //private String email;
