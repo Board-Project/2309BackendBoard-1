@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 
+
 public class PostDTO {
         private Integer id;
         private Integer user_id;
@@ -17,12 +18,8 @@ public class PostDTO {
         private String content;
         private Integer is_deleted;
         private String author;
-        private Integer create_time;
-
-
-
+        private LocalDateTime create_time = LocalDateTime.now();
 
 
         }
-
 
