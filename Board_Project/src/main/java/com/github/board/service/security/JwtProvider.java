@@ -30,7 +30,7 @@ public class JwtProvider {
 
 
 
-    // Create JWT
+
     public String encode(User user) {
         LocalDateTime expiredAt = LocalDateTime.now().plusHours(4);
         Date date = Timestamp.valueOf(expiredAt);
@@ -57,7 +57,7 @@ public class JwtProvider {
             Date expirationDate = claims.getExpiration();
             Date currentDate = new Date();
 
-            return expirationDate.before(currentDate); // false
+            return expirationDate.before(currentDate);
         } catch (ExpiredJwtException e) {
 
             return true;
@@ -85,7 +85,7 @@ public class JwtProvider {
                 .parseClaimsJws(token.substring(7))
                 .getBody();
 
-        return claims.getSubject(); // 토큰의 subject 클레임에서 사용자 ID를 얻음
+        return claims.getSubject();
     }
 
 
