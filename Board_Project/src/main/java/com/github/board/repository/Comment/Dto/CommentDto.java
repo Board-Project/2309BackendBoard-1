@@ -1,11 +1,6 @@
 package com.github.board.repository.Comment.Dto;
 
-import com.github.board.repository.Comment.Entity.Comment;
 import lombok.*;
-
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @ToString
 @Builder
