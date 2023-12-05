@@ -32,8 +32,6 @@ public class UserEntity {
     @Column(name = "create_time",nullable = false)
     private LocalDateTime create_time;
 
-    @Column(name = "is_deleted")
-    private boolean is_deleted = false;
 
 
 }
