@@ -6,7 +6,6 @@ import com.github.board.repository.Comment.Service.CommentService;
 import com.github.board.service.exceptions.NotFoundException;
 import com.github.board.service.security.JwtProvider;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
