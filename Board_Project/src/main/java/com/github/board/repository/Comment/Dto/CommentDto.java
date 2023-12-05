@@ -12,57 +12,15 @@ import java.util.stream.Collectors;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class CommentDto {
 
-    @ToString
-    @Builder
-    @Getter
-    @Setter
-    @AllArgsConstructor
-    public static class CreateCommentRequest {
-        private Integer postId;
-        private String content;
-        private String author;
-    }
+    private Integer post_id;
 
-    @ToString
-    @Builder
-    @Getter
-    @AllArgsConstructor
-    public static class PatchCommentRequest {
-        private Integer commentId;
-        private String content;
-        private String author;
-    }
+    private String content;
 
-    @ToString
-    @Builder
-    @Getter
-    @Setter
-    @AllArgsConstructor
-    public static class CommentResponse {
-        private String userEmail;
-        private Integer postId;
-        private Integer commentId;
-        private String content;
-        private LocalDateTime createTime;
-        private Boolean isDeleted;
-        private String author;
+    private String author;
 
-        public static CommentResponse toResponse(Comment comment){
-            return CommentResponse.builder()
-                    .userEmail(comment.getUser().getEmail())
-                    .postId(comment.getPost().getId())
-                    .commentId(comment.getId())
-                    .content(comment.getContent())
-                    .createTime(comment.getCreateTime())
-                    .isDeleted(comment.isDeleted())
-                    .author(comment.getAuthor())
-                    .build();
-        }
+//    private LocalDateTime create_time;
 
-        public static List<CommentResponse> toResponse(List<Comment> list){
-            return list.stream().map(CommentResponse::toResponse).collect(Collectors.toList());
-        }
-    }
 }

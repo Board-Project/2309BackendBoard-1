@@ -82,7 +82,7 @@ public class JwtProvider {
     public String extractUserId(String token) {
         Claims claims = Jwts.parser()
                 .setSigningKey(secretKey)
-                .parseClaimsJws(token)
+                .parseClaimsJws(token.substring(7))
                 .getBody();
 
         return claims.getSubject(); // 토큰의 subject 클레임에서 사용자 ID를 얻음
