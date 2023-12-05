@@ -3,8 +3,10 @@ package com.github.board.repository.Comment.Controller;
 import com.github.board.repository.Comment.Dto.CommentDto;
 import com.github.board.repository.Comment.Entity.Comment;
 import com.github.board.repository.Comment.Service.CommentService;
+import com.github.board.service.exceptions.NotFoundException;
 import com.github.board.service.security.JwtProvider;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,19 +22,19 @@ public class CommentController {
     private final JwtProvider jwtService;
 
     @GetMapping("/comments")
-    public List<CommentDto.CommentResponse> findAll() {
-        List<Comment> comments = commentService.findAll();
-        return CommentDto.CommentResponse.toResponse(comments);
+    public List<Comment> findAll() {
+
+        return commentService.findAll();
     }
 
     @GetMapping("/comments/{post_id}")
-    public List<CommentDto.CommentResponse> findByPostId(@PathVariable Integer post_id) {
-        List<Comment> comments = commentService.findByPostId(post_id);
-        return CommentDto.CommentResponse.toResponse(comments);
+    public List<Comment> findByPostId(@PathVariable Integer post_id) {
+
+        return commentService.findByPostId(post_id);
     }
 
     @PostMapping("/comments")
-    public ResponseEntity<?> createComment(@RequestBody CommentDto.CreateCommentRequest commentDto, @RequestHeader("Token") String token) {
+    public ResponseEntity<?> createComment(@RequestBody CommentDto commentDto, @RequestHeader("Token") String token) {
         String author = jwtService.extractUserId(token);
         commentDto.setAuthor(author);
         commentService.saveComment(commentDto);
@@ -40,14 +42,29 @@ public class CommentController {
     }
 
     @PutMapping("/comments/{id}")
-    public ResponseEntity<?> updateComment(@PathVariable Integer id, @RequestBody CommentDto.PatchCommentRequest commentDto, @RequestHeader("Token") String token) {
-        commentService.updateComment(commentDto, id);
-        return ResponseEntity.ok("댓글이 성공적으로 수정되었습니다.");
-    }
+    public ResponseEntity<?> updateComment(@PathVariable Integer id, @RequestBody Comment updatedComment, @RequestHeader("Token") String token) {
+        String author = jwtService.extractUserId(token);
 
+        try {
+            Comment comment= commentService.updateComment(updatedComment,id);
+            return ResponseEntity.ok(comment);
+        }catch (NotFoundException e){
+            return ResponseEntity.notFound().build();
+        }
+
+
+
+
+    }
     @DeleteMapping("/comments/{id}")
-    public ResponseEntity<?> deleteComment(@PathVariable Integer id) {
-        commentService.deleteComment(id);
-        return ResponseEntity.ok("댓글이 성공적으로 삭제되었습니다.");
+    public ResponseEntity<?> deleteComment(@PathVariable Integer id,  @RequestHeader("Token") String token) {
+        try {
+            commentService.deleteComment(id);
+            return ResponseEntity.ok("댓글 삭제 완료!");
+
+
+        } catch (NotFoundException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 }

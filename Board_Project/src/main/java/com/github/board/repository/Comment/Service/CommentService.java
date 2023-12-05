@@ -10,6 +10,7 @@ import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,25 +31,28 @@ public class CommentService {
         return commentRepository.findAllBy();
     }
 
-    public void saveComment(CommentDto.CreateCommentRequest commentDto) {
-        Post post = postRepository.findById(commentDto.getPostId())
+    public void saveComment(CommentDto commentDto) {
+        Post post = postRepository.findById(commentDto.getPost_id())
                 .orElseThrow(() -> new EntityNotFoundException("해당 ID의 게시물을 찾을 수 없습니다."));
 
         Comment comment = Comment.builder()
                 .post(post)
                 .author(commentDto.getAuthor())
                 .content(commentDto.getContent())
+                .createTime(LocalDateTime.now())
                 .build();
 
         commentRepository.save(comment);
     }
 
-    public Comment updateComment(CommentDto.PatchCommentRequest commentDto, Integer id) {
+    public Comment updateComment( Comment updatedComment, Integer id) {
+
+
         Optional<Comment> existingComment = commentRepository.findById(id);
 
         if (existingComment.isPresent()) {
             Comment comment = existingComment.get();
-            comment.setContent(commentDto.getContent());
+            comment.setContent(updatedComment.getContent());
             return commentRepository.save(comment);
         } else {
             throw new NotFoundException("댓글을 찾을 수 없습니다.");
@@ -59,8 +63,8 @@ public class CommentService {
         Optional<Comment> existingComment = commentRepository.findById(id);
 
         if (existingComment.isPresent()) {
-            Comment comment = existingComment.get();
-            commentRepository.delete(comment);
+            commentRepository.deleteById(id);
+
         } else {
             throw new NotFoundException("댓글을 찾을 수 없습니다.");
         }
