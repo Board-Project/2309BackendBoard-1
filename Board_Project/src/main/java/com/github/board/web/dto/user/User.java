@@ -22,7 +22,7 @@ public class User {
 
 
 
-    private boolean is_deleted= false;
+
 
 
 }
