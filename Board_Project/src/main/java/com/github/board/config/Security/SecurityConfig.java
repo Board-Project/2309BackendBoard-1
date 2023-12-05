@@ -26,10 +26,17 @@ public class SecurityConfig {
                                 .requestMatchers("/api/logout").permitAll()
                                 .requestMatchers("/api/comments").permitAll()
                                 .requestMatchers("/api/posts/*").permitAll()
-                                .requestMatchers("/api/posts/{id}").permitAll()
+
+                                .requestMatchers("/api/byEmail/*").permitAll()
+                                .requestMatchers("/api/comments/**").permitAll()
+
 
                                 .anyRequest().authenticated()
+
+
                 );
+
+
 
 
 
