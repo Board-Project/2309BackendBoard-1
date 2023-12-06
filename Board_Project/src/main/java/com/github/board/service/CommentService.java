@@ -1,10 +1,10 @@
-package com.github.board.repository.Comment.Service;
+package com.github.board.service;
 
-import com.github.board.entity.Post;
-import com.github.board.repository.Articles.PostRepository;
-import com.github.board.repository.Comment.Dto.CommentDto;
-import com.github.board.repository.Comment.Entity.Comment;
-import com.github.board.repository.Comment.Repository.CommentRepository;
+import com.github.board.repository.Posts.Post;
+import com.github.board.repository.Posts.PostRepository;
+import com.github.board.web.dto.Comment.CommentDto;
+import com.github.board.repository.Comment.Comment;
+import com.github.board.repository.Comment.CommentRepository;
 import com.github.board.service.exceptions.NotFoundException;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;

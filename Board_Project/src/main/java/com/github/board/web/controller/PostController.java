@@ -1,7 +1,7 @@
 package com.github.board.web.controller;
 
-import com.github.board.entity.Post;
-import com.github.board.service.BoardService.PostService;
+import com.github.board.repository.Posts.Post;
+import com.github.board.service.PostService;
 import com.github.board.service.exceptions.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

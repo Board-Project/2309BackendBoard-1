@@ -1,4 +1,4 @@
-package com.github.board.entity;
+package com.github.board.repository.Posts;
 
 import jakarta.persistence.*;
 import lombok.*;

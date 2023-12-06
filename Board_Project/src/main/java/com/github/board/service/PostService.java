@@ -1,8 +1,8 @@
-package com.github.board.service.BoardService;
+package com.github.board.service;
 
 
-import com.github.board.entity.Post;
-import com.github.board.repository.Articles.PostRepository;
+import com.github.board.repository.Posts.Post;
+import com.github.board.repository.Posts.PostRepository;
 import com.github.board.service.exceptions.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,6 @@
-package com.github.board.repository.Comment.Entity;
+package com.github.board.repository.Comment;
 
-import com.github.board.entity.Post;
+import com.github.board.repository.Posts.Post;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.DynamicInsert;

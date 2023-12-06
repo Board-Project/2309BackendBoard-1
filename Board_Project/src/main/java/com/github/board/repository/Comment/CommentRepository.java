@@ -1,6 +1,6 @@
-package com.github.board.repository.Comment.Repository;
+package com.github.board.repository.Comment;
 
-import com.github.board.repository.Comment.Entity.Comment;
+import com.github.board.repository.Comment.Comment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
