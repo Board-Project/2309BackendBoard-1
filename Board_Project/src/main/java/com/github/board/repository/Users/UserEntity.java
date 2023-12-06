@@ -15,7 +15,6 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @DynamicInsert      //엔티티 변화가 있는 컬럼에 대해서만 SQL 실행
-@Where(clause = "is_deleted= false")   // sql(where문)에서 is_deleted false인 행들만 조회
 @Table(name = "user")
 public class UserEntity {
     @Id
@@ -23,7 +22,7 @@ public class UserEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "user_name",nullable = false,length = 20)  //테이블 수정 후 다 false로 바꾸기
+    @Column(name = "user_name",nullable = false,length = 20)
     private String user_name;
     @Column(name = "email",nullable = false,length = 255)
     private String email;
