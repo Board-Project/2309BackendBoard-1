@@ -1,7 +1,5 @@
-package com.github.board.repository.Articles;
+package com.github.board.repository.Posts;
 
-import com.github.board.entity.Post;
-import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -25,11 +25,13 @@ public class SecurityConfig {
                                 .requestMatchers("/api/login").permitAll()
                                 .requestMatchers("/api/logout").permitAll()
                                 .requestMatchers("/api/comments").permitAll()
-                                .requestMatchers("/api/posts/*").permitAll()
-
-                                .requestMatchers("/api/byEmail/*").permitAll()
                                 .requestMatchers("/api/comments/**").permitAll()
-
+                                .requestMatchers("/api/posts").permitAll()
+                                .requestMatchers("/api/posts/**").permitAll()
+                                .requestMatchers("/api/byEmail/**").permitAll()
+                                .requestMatchers("/swagger-ui/**").permitAll()
+                                .requestMatchers("/v3/**", "/swagger-ui/**").permitAll()
+                                .requestMatchers("/swagger-ui.html").permitAll()
 
                                 .anyRequest().authenticated()
 

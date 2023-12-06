@@ -16,8 +16,7 @@ import java.util.Map;
 
 @Configuration
 @EnableJpaRepositories(
-        basePackages = {"com.github.board.repository.Articles","com.github.board.entity","com.github.board.repository.Users","com.github.board.repository.Comment.Entity",
-                        "com.github.board.repository.Comment.Repository"},
+        basePackages = {"com.github.board.repository.Articles","com.github.board.repository.Comment","com.github.board.repository.Users","com.github.board.repository.Posts"},
         entityManagerFactoryRef = "entityManagerFactoryBean1",
         transactionManagerRef = "tmJpa1"
 )
@@ -28,9 +27,7 @@ public class JPAConfig1 {
     public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean1(@Qualifier("dataSource1")DataSource dataSource){
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource);
-        em.setPackagesToScan("com.github.board.repository.Articles", "com.github.board.entity","com.github.board.repository.Users",
-                "com.github.board.repository.Comment.Entity",
-                "com.github.board.repository.Comment.Repository");
+        em.setPackagesToScan("com.github.board.repository.Articles","com.github.board.repository.Comment","com.github.board.repository.Users","com.github.board.repository.Posts");
 
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);

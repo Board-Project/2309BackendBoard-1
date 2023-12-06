@@ -1,8 +1,8 @@
-package com.github.board.repository.Comment.Controller;
+package com.github.board.web.controller;
 
-import com.github.board.repository.Comment.Dto.CommentDto;
-import com.github.board.repository.Comment.Entity.Comment;
-import com.github.board.repository.Comment.Service.CommentService;
+import com.github.board.web.dto.Comment.CommentDto;
+import com.github.board.repository.Comment.Comment;
+import com.github.board.service.CommentService;
 import com.github.board.service.exceptions.NotFoundException;
 import com.github.board.service.security.JwtProvider;
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,4 @@
-package com.github.board.repository.Comment.Dto;
+package com.github.board.web.dto.Comment;
 
 import lombok.*;
 
