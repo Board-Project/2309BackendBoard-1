@@ -1,6 +1,6 @@
 package com.github.board.web.dto.articles;
 
-import io.swagger.annotations.ApiModelProperty;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
