@@ -1,21 +1,38 @@
 server:
-  port:8090
+  port:8080
 
 spring:
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://project-1.cehckoacemxp.ap-northeast-2.rds.amazonaws.com:3306/mydb?useUnicode=true&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    username: root
-    password: 12345678
-
-
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+      spring:
   jpa:
     properties:
       hibernate:
-        use_sql_comments: true
+        show_sql: true
         format_sql: true
 
+datasource:
+  username: ${DATABASE_USERNAME}
+  password: ${DATABASE_PASSWORD}
+  driver-class-name: com.mysql.cj.jdbc.Driver
+  url: jdbc:mysql://project-1.cehckoacemxp.ap-northeast-2.rds.amazonaws.com:3306/mydb
 
 
-  jwt:
-    secret-key: Fu-Bao-the-best-panda
+
+
+jwt:
+    secret-key: ${JWT_SECRET_KEY}
+logging:
+  level:
+    org.hibernate.sql: debug
+    org.hibernate.type: trace
+
+
+
+
+
+
+
+
+
