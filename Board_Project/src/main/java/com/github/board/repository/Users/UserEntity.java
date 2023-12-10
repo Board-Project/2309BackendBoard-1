@@ -2,16 +2,13 @@ package com.github.board.repository.Users;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.antlr.v4.runtime.misc.NotNull;
 import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.Where;
 
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @Entity
-//@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @DynamicInsert      //엔티티 변화가 있는 컬럼에 대해서만 SQL 실행
