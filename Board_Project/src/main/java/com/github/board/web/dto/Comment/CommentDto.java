@@ -16,6 +16,6 @@ public class CommentDto {
 
     private String author;
 
-//    private LocalDateTime create_time;
+
 
 }
