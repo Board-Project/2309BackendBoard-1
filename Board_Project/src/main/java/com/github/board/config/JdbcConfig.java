@@ -1,7 +1,9 @@
 package com.github.board.config;
 
+import com.github.board.properties.DataSourceProperties;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
+
+
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,15 +18,16 @@ import javax.sql.DataSource;
 @EnableConfigurationProperties(DataSourceProperties.class)
 @RequiredArgsConstructor
 public class JdbcConfig {
+    private final DataSourceProperties dataSourceProperties;
     //Jdbc 관련 빈 등록
 
     @Bean
     public DataSource dataSource1(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setUsername("root");
-        dataSource.setPassword("12345678");
-        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://project-1.cehckoacemxp.ap-northeast-2.rds.amazonaws.com:3306/mydb");
+        dataSource.setUsername(dataSourceProperties.getUsername());
+        dataSource.setPassword(dataSourceProperties.getPassword());
+        dataSource.setDriverClassName(dataSourceProperties.getDriverClassName());
+        dataSource.setUrl(dataSourceProperties.getUrl());
         return dataSource;
     }
 

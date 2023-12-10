@@ -15,7 +15,7 @@ import java.util.Arrays;
 
 @OpenAPIDefinition(
         info = @Info(title = "API 명세서",
-                description = " API 명세서",
+                description = " 게시판 프로젝트 (유저,게시글,댓글) API",
                 version = "v1"))
 @Configuration
 public class SwaggerConfig {
