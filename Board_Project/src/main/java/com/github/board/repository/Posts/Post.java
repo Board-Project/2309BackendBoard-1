@@ -2,21 +2,17 @@ package com.github.board.repository.Posts;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.Where;
-
-import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @Entity
 @Getter
 @Setter
-//@EqualsAndHashCode(of = "id")
-//@Builder
+
 @NoArgsConstructor
 @Table(name = "post")
 public class Post {
 
-    // 게시글 user id - 댓글 참조
+
 
     @Id //primary key
     @Column(name ="id", nullable = false)
@@ -32,10 +28,5 @@ public class Post {
     @Column(name = "author", length = 32, nullable = false)
     private String author;
 
-//    @Column(name = "create_time", nullable = false)
-//    private LocalDateTime create_time;
-
-
-    //private String email;
 
 }
