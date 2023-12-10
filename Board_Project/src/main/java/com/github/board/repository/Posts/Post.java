@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @Setter
-@EqualsAndHashCode(of = "id")
+//@EqualsAndHashCode(of = "id")
 //@Builder
 @NoArgsConstructor
 @Table(name = "post")
